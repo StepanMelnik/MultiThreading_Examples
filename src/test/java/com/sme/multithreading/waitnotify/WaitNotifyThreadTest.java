@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ * Unit test to demonstrate how wait/notify/notifyAll methods communicate between threads.
  */
 public class WaitNotifyThreadTest
 {
@@ -41,7 +41,7 @@ public class WaitNotifyThreadTest
             synchronized (message)  // notify, notifyAll must be synchronized
             {
                 message.setMessage(messageValue);
-                // message.notify(); // The logic uses two consumers, so we should use notifyAll, otherwise a waiting thread never finishes 
+                // message.notify(); // The logic uses two consumers, so we should use notifyAll, otherwise a waiting thread never finishes
                 message.notifyAll();
                 LOGGER.debug("Sent a notification in producer for waiting threads", Thread.currentThread().getName());
             }

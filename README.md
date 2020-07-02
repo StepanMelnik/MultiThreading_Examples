@@ -13,7 +13,7 @@ Two threads call not synchronized method to increase the same value. As a result
 It means the logic is not thread safe.
 
 
-<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/synchronizedmethod/SynchronizedMethodTest.java#L89">SynchronizedMethodTest#testSynchronizedMethod</a> test creates two threads with different delays in runnable object.
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/synchronizedmethod/SynchronizedMethodTest.java#L83">SynchronizedMethodTest#testSynchronizedMethod</a> test creates two threads with different delays in runnable object.
 
 Two threads call synchronized method to increase the same value. As a result we get a proper result with [1..30] range in thread safe logic.
 

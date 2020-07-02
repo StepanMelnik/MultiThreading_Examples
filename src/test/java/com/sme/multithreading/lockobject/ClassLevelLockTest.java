@@ -75,8 +75,8 @@ public class ClassLevelLockTest
      */
     private static class SynchrnoziedStaticMethodSafeCounter
     {
-        private final static List<Integer> result = new ArrayList<>();
-        private static int counter;
+        private static final List<Integer> RESULT = new ArrayList<>();
+        private static int COUNTER;
 
         /**
          * Get list of created counters.
@@ -85,17 +85,19 @@ public class ClassLevelLockTest
          */
         static List<Integer> getResult()
         {
-            return result;
+            return RESULT;
         }
 
         /**
          * Increment variable.
+         * 
+         * @return Returns the variable value.
          */
-        synchronized static int increment()
+        static synchronized int increment()
         {
-            counter++;
-            result.add(counter);
-            return counter;
+            COUNTER++;
+            RESULT.add(COUNTER);
+            return COUNTER;
         }
     }
 }

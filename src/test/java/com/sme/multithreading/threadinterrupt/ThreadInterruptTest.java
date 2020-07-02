@@ -3,6 +3,8 @@ package com.sme.multithreading.threadinterrupt;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
@@ -71,13 +73,16 @@ public class ThreadInterruptTest
     @Test
     void testInterrupt()
     {
+        List<Integer> list = new ArrayList<>(Integer.MAX_VALUE / 10000);
+
         Thread thread = new Thread(() ->
         {
             LOGGER.debug("Start {} thread", Thread.currentThread().getName());
 
             IntStream.range(1, Integer.MAX_VALUE / 10000).forEach(step ->
             {
-                /*                try
+                /*
+                try
                 {
                     TimeUnit.MILLISECONDS.sleep(10);
                 }
@@ -86,6 +91,8 @@ public class ThreadInterruptTest
                     LOGGER.error("The {} thread is interrupted. Make cleanup.", Thread.currentThread().getName(), e);
                 }
                 */
+
+                list.add(step);
                 LOGGER.debug("Perform {} step in {} thread", step, Thread.currentThread().getName());
             });
 
@@ -93,7 +100,7 @@ public class ThreadInterruptTest
         });
 
         thread.start();
-        thread.interrupt();
+        thread.interrupt(); // sends interrupt event, the logic still continue to work in thread
 
         assertTrue(thread.isAlive(), "Expects started thread");
         assertTrue(thread.isInterrupted(), "Expects interrupted thread");
@@ -106,5 +113,7 @@ public class ThreadInterruptTest
         {
             LOGGER.error("Main thread is interrupted", e);
         }
+
+        assertTrue(list.size() > 0, "Expects that thread processes the logic even if we send interrupt() signal externally");
     }
 }

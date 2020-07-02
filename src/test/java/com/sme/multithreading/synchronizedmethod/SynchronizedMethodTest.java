@@ -29,7 +29,7 @@ public class SynchronizedMethodTest
      * </p>
      */
     @Test
-    void testNotSynchronizedMethod()
+    void testNotSynchronizedMethod() throws InterruptedException
     {
         Thread thread1 = new Thread(() ->
         {
@@ -66,14 +66,8 @@ public class SynchronizedMethodTest
         thread1.start();
         thread2.start();
 
-        try
-        {
-            thread1.join();
-            thread2.join();
-        }
-        catch (InterruptedException e)
-        {
-        }
+        thread1.join();
+        thread2.join();
 
         LOGGER.debug("The result should have not ordered integer [1..30] range");
         // no assertion here
@@ -86,7 +80,7 @@ public class SynchronizedMethodTest
      * </p>
      */
     @Test
-    void testSynchronizedMethod()
+    void testSynchronizedMethod() throws InterruptedException
     {
         Thread thread1 = new Thread(() ->
         {
@@ -123,16 +117,10 @@ public class SynchronizedMethodTest
         thread1.start();
         thread2.start();
 
-        try
-        {
-            thread1.join();
-            thread2.join();
-        }
-        catch (InterruptedException e)
-        {
-        }
+        thread1.join();
+        thread2.join();
 
-        LOGGER.debug("The result should have not ordered integer [1..30] range");
+        LOGGER.debug("The result should have ordered integer [1..30] range");
         assertEquals(IntStream.range(1, 31).boxed().collect(Collectors.toList()), result);
     }
 

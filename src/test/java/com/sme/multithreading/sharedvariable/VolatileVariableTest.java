@@ -26,7 +26,7 @@ public class VolatileVariableTest
      * </p>
      */
     @Test
-    void testSharedVariable()
+    void testSharedVariable() throws InterruptedException
     {
         Server server = new Server();
 
@@ -36,25 +36,11 @@ public class VolatileVariableTest
         assertTrue(thread.isAlive(), "Expects alive thread");
         assertFalse(thread.isInterrupted(), "Expects not interrupted thread");
 
-        try
-        {
-            TimeUnit.SECONDS.sleep(10);
-        }
-        catch (InterruptedException e)
-        {
-            LOGGER.debug("Test is interrupted", e);
-        }
+        TimeUnit.SECONDS.sleep(10);
 
         server.stop();
 
-        try
-        {
-            TimeUnit.SECONDS.sleep(3);
-        }
-        catch (InterruptedException e)
-        {
-            LOGGER.debug("Test is interrupted", e);
-        }
+        TimeUnit.SECONDS.sleep(3);
 
         assertFalse(thread.isAlive(), "Expects alive thread");
         assertFalse(thread.isInterrupted(), "Expects not interrupted thread");

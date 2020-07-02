@@ -1,10 +1,10 @@
 package com.sme.multithreading.countdown;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInSeconds;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -27,50 +27,29 @@ public class CountDownLatchTest
 
         Thread thread1 = new Thread(() ->
         {
-            try
-            {
-                TimeUnit.SECONDS.sleep(10);
-                LOGGER.debug("Thread 1 ({}) thread is UP", Thread.currentThread().getName());
+            sleepInSeconds(10, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
 
-                LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
-                countDownLatch.countDown();
-            }
-            catch (InterruptedException e)
-            {
-                LOGGER.debug("{} thread is interrupted", Thread.currentThread().getName());
-            }
+            LOGGER.debug("Thread 1 ({}) thread is UP", Thread.currentThread().getName());
+            LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
+            countDownLatch.countDown();
         });
 
         Thread thread2 = new Thread(() ->
         {
-            try
-            {
-                TimeUnit.SECONDS.sleep(5);
-                LOGGER.debug("Thread 2 ({}) thread is UP", Thread.currentThread().getName());
+            sleepInSeconds(5, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
 
-                LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
-                countDownLatch.countDown();
-            }
-            catch (InterruptedException e)
-            {
-                LOGGER.debug("{} thread is interrupted", Thread.currentThread().getName());
-            }
+            LOGGER.debug("Thread 2 ({}) thread is UP", Thread.currentThread().getName());
+            LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
+            countDownLatch.countDown();
         });
 
         Thread thread3 = new Thread(() ->
         {
-            try
-            {
-                TimeUnit.SECONDS.sleep(7);
-                LOGGER.debug("Thread 3 ({}) thread is UP", Thread.currentThread().getName());
+            sleepInSeconds(7, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
 
-                LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
-                countDownLatch.countDown();
-            }
-            catch (InterruptedException e)
-            {
-                LOGGER.debug("{} thread is interrupted", Thread.currentThread().getName());
-            }
+            LOGGER.debug("Thread 3 ({}) thread is UP", Thread.currentThread().getName());
+            LOGGER.debug("CountDownLatch#count() = {} in {} thread", countDownLatch.getCount(), Thread.currentThread().getName());
+            countDownLatch.countDown();
         });
 
         thread1.start();

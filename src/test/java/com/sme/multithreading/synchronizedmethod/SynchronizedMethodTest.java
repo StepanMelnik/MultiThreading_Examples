@@ -1,5 +1,6 @@
 package com.sme.multithreading.synchronizedmethod;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInMilliSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -87,14 +88,7 @@ public class SynchronizedMethodTest
             IntStream.range(0, 10).forEach(step ->
             {
                 synchronizedIncrement(step, Thread.currentThread().getName());
-                try
-                {
-                    Thread.sleep(1000);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -103,14 +97,7 @@ public class SynchronizedMethodTest
             IntStream.range(0, 20).forEach(step ->
             {
                 synchronizedIncrement(step, Thread.currentThread().getName());
-                try
-                {
-                    Thread.sleep(500);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(500, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 

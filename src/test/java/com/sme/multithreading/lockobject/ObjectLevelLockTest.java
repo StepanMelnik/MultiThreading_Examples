@@ -1,10 +1,10 @@
 package com.sme.multithreading.lockobject;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInMilliSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -31,18 +31,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 10).forEach(step ->
             {
-                try
-                {
-                    int counter = methodSynchrnoziedSafeCounter.increment();
+                int counter = methodSynchrnoziedSafeCounter.increment();
+                LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(1000);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -50,18 +42,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 20).forEach(step ->
             {
-                try
-                {
-                    int counter = methodSynchrnoziedSafeCounter.increment();
+                int counter = methodSynchrnoziedSafeCounter.increment();
+                LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(600);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(600, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -84,18 +68,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 10).forEach(step ->
             {
-                try
-                {
-                    int counter = synchrnoziedBlockSafeCounter.increment();
+                int counter = synchrnoziedBlockSafeCounter.increment();
+                LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(1000);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -103,18 +79,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 20).forEach(step ->
             {
-                try
-                {
-                    int counter = synchrnoziedBlockSafeCounter.increment();
+                int counter = synchrnoziedBlockSafeCounter.increment();
+                LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(600);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(600, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -137,18 +105,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 10).forEach(step ->
             {
-                try
-                {
-                    int counter = synchrnoziedObjectLockSafeCounter.increment();
+                int counter = synchrnoziedObjectLockSafeCounter.increment();
+                LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread1 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(1000);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 
@@ -156,18 +116,10 @@ public class ObjectLevelLockTest
         {
             IntStream.range(0, 20).forEach(step ->
             {
-                try
-                {
-                    int counter = synchrnoziedObjectLockSafeCounter.increment();
+                int counter = synchrnoziedObjectLockSafeCounter.increment();
+                LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
 
-                    LOGGER.debug("{} thread2 in {} step with {} count result", Thread.currentThread().getName(), step, counter);
-
-                    TimeUnit.MILLISECONDS.sleep(600);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.error("{} thread is interrupted", Thread.currentThread().getName(), e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             });
         });
 

@@ -1,13 +1,15 @@
 package com.sme.multithreading.waitnotify;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.sme.multithreading.model.Message;
 
 /**
  * Unit test to demonstrate how wait/notify/notifyAll methods communicate between threads.
@@ -28,15 +30,7 @@ public class WaitNotifyThreadTest
         Thread producer = new Thread(() ->
         {
             LOGGER.debug("Start notifier in {} thread", Thread.currentThread().getName());
-
-            try
-            {
-                TimeUnit.SECONDS.sleep(5);
-            }
-            catch (InterruptedException e)
-            {
-                LOGGER.error("{} thread is interrupted", Thread.currentThread().getName());
-            }
+            sleepInSeconds(5, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted. Make cleanup");
 
             synchronized (message)  // notify, notifyAll must be synchronized
             {

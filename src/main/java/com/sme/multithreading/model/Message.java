@@ -1,4 +1,4 @@
-package com.sme.multithreading.waitnotify;
+package com.sme.multithreading.model;
 
 import static org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
@@ -12,6 +12,16 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class Message
 {
     private String message;
+
+    public Message()
+    {
+        this("");
+    }
+
+    public Message(String message)
+    {
+        this.message = message;
+    }
 
     public String getMessage()
     {

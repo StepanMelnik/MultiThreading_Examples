@@ -1,5 +1,6 @@
 package com.sme.multithreading.sharedvariable;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInMilliSeconds;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -59,14 +60,7 @@ public class VolatileVariableTest
             while (isRunning)
             {
                 LOGGER.debug("Run in Server");
-                try
-                {
-                    TimeUnit.SECONDS.sleep(1);
-                }
-                catch (InterruptedException e)
-                {
-                    LOGGER.debug("Server is interrupted", e);
-                }
+                sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
             }
         }
 

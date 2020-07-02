@@ -1,11 +1,11 @@
 package com.sme.multithreading.threadinterrupt;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInSeconds;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
@@ -31,16 +31,7 @@ public class ThreadInterruptTest
         Thread thread = new Thread(() ->
         {
             LOGGER.debug("Start {} thread", Thread.currentThread().getName());
-
-            try
-            {
-                TimeUnit.SECONDS.sleep(10);
-            }
-            catch (InterruptedException e)
-            {
-                LOGGER.error("The {} thread is interrupted. Make cleanup.", Thread.currentThread().getName(), e);
-            }
-
+            sleepInSeconds(10, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted. Make cleanup");
             LOGGER.debug("Finish {} thread", Thread.currentThread().getName());
         });
 

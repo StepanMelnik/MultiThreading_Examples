@@ -1,11 +1,11 @@
 package com.sme.multithreading.countdown;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInSeconds;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.junit.jupiter.api.Test;
@@ -35,9 +35,10 @@ public class CyclicBarrierTest
 
         Thread thread1 = new Thread(() ->
         {
+            sleepInSeconds(2, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
+
             try
             {
-                TimeUnit.SECONDS.sleep(2);
                 LOGGER.debug("Thread 1 ({}) thread is UP", Thread.currentThread().getName());
 
                 LOGGER.debug("CyclicBarrier#getNumberWaiting() = {} in {} thread", cyclicBarrier.getNumberWaiting(), Thread.currentThread().getName());
@@ -53,9 +54,10 @@ public class CyclicBarrierTest
 
         Thread thread2 = new Thread(() ->
         {
+            sleepInSeconds(12, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
+
             try
             {
-                TimeUnit.SECONDS.sleep(12);
                 LOGGER.debug("Thread 2 ({}) thread is UP", Thread.currentThread().getName());
 
                 LOGGER.debug("CyclicBarrier#getNumberWaiting() = {} in {} thread", cyclicBarrier.getNumberWaiting(), Thread.currentThread().getName());
@@ -71,9 +73,10 @@ public class CyclicBarrierTest
 
         Thread thread3 = new Thread(() ->
         {
+            sleepInSeconds(8, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
+
             try
             {
-                TimeUnit.SECONDS.sleep(8);
                 LOGGER.debug("Thread 3 ({}) thread is UP", Thread.currentThread().getName());
 
                 LOGGER.debug("CyclicBarrier#getNumberWaiting() = {} in {} thread", cyclicBarrier.getNumberWaiting(), Thread.currentThread().getName());

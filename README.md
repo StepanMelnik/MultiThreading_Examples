@@ -76,6 +76,18 @@ Definition : According to Oracle docs,
 
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/countdown/CyclicBarrierTest.java#L26">CountDownLatchTest#testCyclicBarrier</a> test creates 3 threads and synchronize them in barrier to all wait for each other to reach a common barrier point.
 
+### Consumer-Producer
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/consumerproducer/ConsumerProducerTest.java">ConsumerProducerTest</a> test demonstrates how to work with Consumer and Producer using {@link BlockingArray}.
+
+This queue orders elements FIFO (first-in-first-out).
+
+{@link ArrayBlockingQueue} works with final predefined capacity. The main Lock based on ReentrantLock implementation with notEmpty and notFull conditions.
+
+    Compare the solution with low level implementation in {@link WaitNotifyThreadTest}.
+
+
+
 ## Build
 
 Clone and install <a href="https://github.com/StepanMelnik/Parent.git">Parent</a> project before building.

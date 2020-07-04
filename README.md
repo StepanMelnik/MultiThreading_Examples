@@ -5,6 +5,23 @@ The project covers different cases of multi-threading in java.
 
 The project contains a lot of cases to work with multi-threading in old/new java version.
 
+___
+The following cases covered in unit tests:
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#SynchronizedMethodTest">SynchronizedMethod</a> case describes how to properly increase a value in synchronized method by a few threads;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#VolatileVariableTest">VolatileVariable</a> case demonstrates how to use a global variable between threads;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Object/Class level lock">Object/Class level lock</a> case demonstrates how to lock an object on the Method/Class level;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Wait/Notify/NotifyAll operations in thread">Wait/Notify/NotifyAll operations in thread</a> case demonstrates how to work with **wait**, **notify** and **notifyAll** methods in the threads to communicate;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#UncaughtExceptionHandler">Uncaught Exception Handler</a> case shows how to catch an error in a thread;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Interrupt thread">Interrupt thread</a> case demonstrates what method can be interrupted in the thread and how to catch the error;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Atomic operation">Atomic operation</a> case compares how to work with counter variable in safe mode using synchronized method and AtomicInteger instance;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Count down threads">Count down threads</a> case describes how CountDownLatch and CyclicBarrier solutions work;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#Consumer-Producer">Consumer-Producer</a> case shows how to organize Consumer-Producer system using FIFO and LIFO queue;
+* TODO: add more: reentrant lock, read/write lock, lock with condition, semaphore, threadpool, callable future, etc
+
+
+
+
+
 ### SynchronizedMethodTest
 
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/synchronizedmethod/SynchronizedMethodTest.java#L32">SynchronizedMethodTest#testNotSynchronizedMethod</a> test creates two threads with different delays in runnable object.

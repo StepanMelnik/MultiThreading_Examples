@@ -16,7 +16,10 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#atomic-operation">Atomic operation</a> case compares how to work with counter variable in safe mode using synchronized method and AtomicInteger instance;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#count-down-threads">Count down threads</a> case describes how CountDownLatch and CyclicBarrier solutions work;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#consumer-producer">Consumer-Producer</a> case shows how to organize Consumer-Producer system using FIFO and LIFO queue;
-* TODO: add more: reentrant lock, read/write lock, lock with condition, semaphore, threadpool, callable future, etc
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">Reantal lock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions.
+
+
+* TODO: add more: fork-join, semaphore, threadpool, callable future, etc
 
 
 
@@ -95,7 +98,7 @@ Definition : According to Oracle docs,
 
 ### Consumer-Producer
 
-<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/consumerproducer/ConsumerProducerTest.java">ConsumerProducerTest</a> test demonstrates how to work with Consumer and Producer using {@link BlockingArray}.
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/consumerproducer/ConsumerProducerFifoTest.java">ConsumerProducerFifoTest</a> test demonstrates how to work with Consumer and Producer using {@link BlockingArray}.
 
 This queue orders elements FIFO (first-in-first-out).
 
@@ -103,7 +106,19 @@ This queue orders elements FIFO (first-in-first-out).
 
     Compare the solution with low level implementation in {@link WaitNotifyThreadTest}.
 
+### ReentrantLock
 
+#### ReentrantLock
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/reentrantlock/ReentrantLockTest.java">ReentrantLockTest</a> test demonstrates how to work with {@link ReentrantLock#lock} and {@link ReentrantLock#tryLock(long, TimeUnit)} (no synchronized method required).
+
+#### ReentrantReadWriteLock
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/reentrantlock/ReentrantReadWriteLockTest.java">ReentrantReadWriteLockTest</a> test demonstrates why HashMap is not thread safe. Also the test works with {@link ReentrantReadWriteLockTest#HashMapDecorator} that allows to use read/write locking. {@link HashMapDecorator#putAndGet} works with lock to put/get a value in HashMap. 
+
+#### ReentrantLockWithCondition
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/reentrantlock/ReentrantLockWithConditionTest.java">ReentrantLockWithConditionTest</a> test demonstrates how to work with conditions in the lock.
 
 ## Build
 

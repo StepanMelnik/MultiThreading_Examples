@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ import com.sme.multithreading.waitnotify.WaitNotifyThreadTest;
  * Compare the solution with low level implementation in {@link WaitNotifyThreadTest}.
  * </p>
  */
-public class ConsumerProducerTest
+public class ConsumerProducerFifoTest
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(CountDownLatchTest.class);
 
@@ -92,5 +93,6 @@ public class ConsumerProducerTest
         countDownLatch.await();
 
         assertEquals(100, consumedMessages.size());
+        assertEquals(IntStream.range(0, 100).boxed().map(step -> new Message("Message " + step)).collect(Collectors.toList()), consumedMessages);
     }
 }

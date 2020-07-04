@@ -16,7 +16,7 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#atomic-operation">Atomic operation</a> case compares how to work with counter variable in safe mode using synchronized method and AtomicInteger instance;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#count-down-threads">Count down threads</a> case describes how CountDownLatch and CyclicBarrier solutions work;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#consumer-producer">Consumer-Producer</a> case shows how to organize Consumer-Producer system using FIFO and LIFO queue;
-* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">Reantal lock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions.
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">ReentrantLock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions.
 
 
 * TODO: add more: fork-join, semaphore, threadpool, callable future, etc

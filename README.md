@@ -16,10 +16,14 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#atomic-operation">Atomic operation</a> case compares how to work with counter variable in safe mode using synchronized method and AtomicInteger instance;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#count-down-threads">Count down threads</a> case describes how CountDownLatch and CyclicBarrier solutions work;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#consumer-producer">Consumer-Producer</a> case shows how to organize Consumer-Producer system using FIFO and LIFO queue;
-* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">ReentrantLock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions.
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">ReentrantLock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#stampedlock">StampedLock</a> cases demonstrate StampedLock features.
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#semaphore">Semaphore</a> cases show how Semaphore and Mutex as Semaphore work;
 
 
-* TODO: add more: fork-join, semaphore, threadpool, callable future, etc
+
+
+* TODO: add more: fork-join, threadpool, callable future, etc
 
 
 
@@ -42,6 +46,9 @@ Two threads call synchronized method to increase the same value. As a result we 
 Volatile member is shared in main memory that consumes extra memory. Also it's not easy to debug a program with Volatile members if any problem occurs.
 
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/sharedvariable/VolatileVariableTest.java#L29">VolatileVariableTest#testSharedVariable</a> test creates Server instance with isRunning volatile variable. According to the variable we can start or stop Server thread. 
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/sharedvariable/VolatileIncrementVariableTest.java">VolatileIncrementVariableTest</a> test shows that Volatile variables share the visibility features of synchronized, but none of the atomicity features.
+
 
 ### Object/Class level lock
 
@@ -119,6 +126,22 @@ This queue orders elements FIFO (first-in-first-out).
 #### ReentrantLockWithCondition
 
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/reentrantlock/ReentrantLockWithConditionTest.java">ReentrantLockWithConditionTest</a> test demonstrates how to work with conditions in the lock.
+
+### StampedLock
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/stampedlock/StampedLockTest.java">StampedLockTest</a> test demonstrates StampedLock features.
+
+
+### Semaphore
+
+#### SemaphoreTest
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/semaphore/SemaphoreTest.java">SemaphoreTest</a> test demonstrates how semaphore works with predefined permits.
+
+#### SemaphoreAsMutexTest
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/semaphore/SemaphoreAsMutexTest.java">SemaphoreAsMutexTest</a> test demonstrates how to implement Mutex using semaphore.
+
+
+
 
 ## Build
 

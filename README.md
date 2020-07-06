@@ -5,7 +5,7 @@ The project covers different cases of multi-threading in java.
 
 The project contains a lot of cases to work with multi-threading in old/new java version.
 
-___
+_________
 The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#synchronizedmethodtest">SynchronizedMethod</a> case describes how to properly increase a value in synchronized method by a few threads;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#volatilevariabletest">VolatileVariable</a> case demonstrates how to use a global variable between threads;
@@ -21,10 +21,8 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#semaphore">Semaphore</a> cases show how Semaphore and Mutex as Semaphore work;
 
 
-
-
 * TODO: add more: fork-join, threadpool, callable future, etc
-
+_________
 
 
 

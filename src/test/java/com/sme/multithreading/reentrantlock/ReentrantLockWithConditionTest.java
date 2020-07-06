@@ -23,7 +23,7 @@ public class ReentrantLockWithConditionTest
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ReentrantLockWithConditionTest.class);
 
-    private int count = 0;
+    private int count;
     private final List<Integer> result = new ArrayList<>();
 
     private final Lock lock = new ReentrantLock();

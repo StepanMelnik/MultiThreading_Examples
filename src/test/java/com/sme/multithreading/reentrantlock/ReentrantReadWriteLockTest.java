@@ -193,7 +193,6 @@ public class ReentrantReadWriteLockTest
             {
                 writeLock.unlock();
             }
-
         }
 
         /**
@@ -236,6 +235,5 @@ public class ReentrantReadWriteLockTest
                 reentrantLock.unlock();
             }
         }
-
     }
 }

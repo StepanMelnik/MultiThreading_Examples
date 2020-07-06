@@ -99,7 +99,6 @@ public class VolatileIncrementVariableTest
 
     private void notSafeIncrement(int step, String threadName)
     {
-
         count++;
         LOGGER.debug("{} thread in {} step with {} count result", threadName, step, count);
         result.add(count);  // This is a bottle neck in test, because of the race operation

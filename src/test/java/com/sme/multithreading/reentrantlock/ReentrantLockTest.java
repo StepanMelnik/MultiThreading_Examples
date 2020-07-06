@@ -103,7 +103,6 @@ public class ReentrantLockTest
                     lock.unlock();
                 }
             }
-
         }
         catch (InterruptedException e)
         {

@@ -1,4 +1,4 @@
-# MultiThreading examples
+# MultiThreading (Concurrency) examples
 The project covers different cases of multi-threading in java.
 
 ## Description
@@ -138,8 +138,13 @@ This queue orders elements FIFO (first-in-first-out).
 #### SemaphoreAsMutexTest
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/semaphore/SemaphoreAsMutexTest.java">SemaphoreAsMutexTest</a> test demonstrates how to implement Mutex using semaphore.
 
+### Fork-Join
 
+#### RecursiveNodeForkJoinTest
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows how to calculate a sum in the tree of nodes.
 
+#### RecursiveNodeForkJoinTest
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows ow RecursiveAction and RecursiveTask work in Fork-Join framework.
 
 ## Build
 

@@ -17,11 +17,12 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#count-down-threads">Count down threads</a> case describes how CountDownLatch and CyclicBarrier solutions work;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#consumer-producer">Consumer-Producer</a> case shows how to organize Consumer-Producer system using FIFO and LIFO queue;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">ReentrantLock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions;
-* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#stampedlock">StampedLock</a> cases demonstrate StampedLock features.
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#stampedlock">StampedLock</a> cases demonstrate StampedLock features;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#semaphore">Semaphore</a> cases show how Semaphore and Mutex as Semaphore work;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#fork-join">Fork-Join</a> cases demonstrates how RecursiveAction and RecursiveTask work in Fork-Join framework;
 
 
-* TODO: add more: fork-join, threadpool, callable future, etc
+* TODO: add more: threadpool, callable future, etc
 _________
 
 
@@ -144,7 +145,7 @@ This queue orders elements FIFO (first-in-first-out).
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows how to calculate a sum in the tree of nodes.
 
 #### RecursiveNodeForkJoinTest
-<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows ow RecursiveAction and RecursiveTask work in Fork-Join framework.
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows how RecursiveAction and RecursiveTask work in Fork-Join framework.
 
 ## Build
 

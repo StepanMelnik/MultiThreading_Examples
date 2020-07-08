@@ -4,6 +4,9 @@ The project covers different cases of multi-threading in java.
 ## Description
 
 The project contains a lot of cases to work with multi-threading in old/new java version.
+
+Also see <a href="https://github.com/StepanMelnik/MultiThreading_BestPractice">MultiThreading Best Practice</a> project with some suggestions to work with multi threading in java.
+
 _________
 
 The following cases covered in unit tests:

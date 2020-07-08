@@ -4,8 +4,8 @@ The project covers different cases of multi-threading in java.
 ## Description
 
 The project contains a lot of cases to work with multi-threading in old/new java version.
-
 _________
+
 The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#synchronizedmethodtest">SynchronizedMethod</a> case describes how to properly increase a value in synchronized method by a few threads;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#volatilevariabletest">VolatileVariable</a> case demonstrates how to use a global variable between threads;
@@ -19,14 +19,12 @@ The following cases covered in unit tests:
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#reentrantlock">ReentrantLock</a> cases show how to work with ReentrantLock, ReentrantReadWriteLock and lock conditions;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#stampedlock">StampedLock</a> cases demonstrate StampedLock features;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#semaphore">Semaphore</a> cases show how Semaphore and Mutex as Semaphore work;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#executorservice">ExecutorServiceTest</a> test demonstrates {@link ExecutorService} features;
 * <a href="https://github.com/StepanMelnik/MultiThreading_Examples#fork-join">Fork-Join</a> cases demonstrates how RecursiveAction and RecursiveTask work in Fork-Join framework;
+* <a href="https://github.com/StepanMelnik/MultiThreading_Examples#completablefuture">CompletableFuture</a> cases shows different cases to work with {@link CompletableFuture} features;
 
 
-* TODO: add more: threadpool, callable future, etc
 _________
-
-
-
 
 ### SynchronizedMethodTest
 
@@ -139,6 +137,10 @@ This queue orders elements FIFO (first-in-first-out).
 #### SemaphoreAsMutexTest
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/semaphore/SemaphoreAsMutexTest.java">SemaphoreAsMutexTest</a> test demonstrates how to implement Mutex using semaphore.
 
+### ExecutorService
+
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/executorservice/ExecutorServiceTest.java">ExecutorServiceTest</a> test demonstrates {@link ExecutorService} features.
+
 ### Fork-Join
 
 #### RecursiveNodeForkJoinTest
@@ -146,6 +148,11 @@ This queue orders elements FIFO (first-in-first-out).
 
 #### RecursiveNodeForkJoinTest
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/forkjoin/RecursiveNodeForkJoinTest.java">RecursiveNodeForkJoinTest</a> test shows how RecursiveAction and RecursiveTask work in Fork-Join framework.
+
+
+### CompletableFuture
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/completablefuture/CompletableFutureTest.java">CompletableFutureTest</a> test shows different cases to work with {@link CompletableFuture} features.
+
 
 ## Build
 

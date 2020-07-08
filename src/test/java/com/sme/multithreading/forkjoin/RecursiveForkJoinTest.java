@@ -1,5 +1,6 @@
 package com.sme.multithreading.forkjoin;
 
+import static com.sme.multithreading.util.ThreadUtil.sleepInMilliSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -88,6 +89,8 @@ public class RecursiveForkJoinTest
         customRecursiveTaskFirst.fork();
         customRecursiveTaskSecond.fork();
         customRecursiveTaskThird.fork();
+
+        sleepInMilliSeconds(1000, s -> LOGGER.error(s, Thread.currentThread().getName()), "{} thread is interrupted");
 
         assertTrue(customRecursiveTaskFirst.isDone());
         assertTrue(customRecursiveTaskSecond.isDone());

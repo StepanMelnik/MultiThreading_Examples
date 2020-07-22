@@ -156,6 +156,9 @@ This queue orders elements FIFO (first-in-first-out).
 ### CompletableFuture
 <a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/completablefuture/CompletableFutureTest.java">CompletableFutureTest</a> test shows different cases to work with {@link CompletableFuture} features.
 
+### Guava Striped locking 
+<a href="https://github.com/StepanMelnik/MultiThreading_Examples/blob/master/src/test/java/com/sme/multithreading/guava/StrippedLockTest.java">StrippedLockTest</a> test compares ReentrantLock with <a href="https://github.com/google/guava/wiki/StripedExplained">Striped</a> implementation in Guava.
+
 
 ## Build
 
